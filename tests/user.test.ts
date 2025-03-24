@@ -57,7 +57,11 @@ describe('User API', () => {
       expect(response.status).toBe(200)
       expect(response.body).toEqual({
         token,
-        message: 'Connexion réussie',
+        message: 'Login successful',
+        user: {
+          email: 'test@example.com',
+          id: 1,
+        },
       })
     })
 
@@ -71,7 +75,7 @@ describe('User API', () => {
 
       expect(response.status).toBe(401)
       expect(response.body).toEqual({
-        error: 'Email incorrect',
+        error: 'Email not found',
       })
     })
 
@@ -91,7 +95,7 @@ describe('User API', () => {
 
       expect(response.status).toBe(401)
       expect(response.body).toEqual({
-        error: 'Mot de passe incorrect',
+        error: 'Invalid password',
       })
     })
 
@@ -105,7 +109,7 @@ describe('User API', () => {
 
       expect(response.status).toBe(500)
       expect(response.body).toEqual({
-        error: 'Une erreur est survenue',
+        error: 'Failed to login',
       })
     })
   })
