@@ -10,13 +10,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Generate token
-        id: generate_token
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ secrets.SEMANTIC_BOT_APP_ID }}
-          private-key: ${{ secrets.SEMANTIC_BOT_PRIVATE_KEY }}
-
       - name: Checking out code
         uses: actions/checkout@v4
         with:
